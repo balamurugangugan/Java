@@ -8,46 +8,112 @@ public class Patterns {
         System.out.println("Enter the value n: ");
         int n = scan.nextInt();
         Patterns pattern = new Patterns();
-        pattern.pattern13(n);
+        pattern.pattern15(n);
     }
     
-    void pattern13(int n){
-        for(int i = 1; i<=n; i++){
-            //for last line
-            while(i==n){
-                for(int y = 1; y<=n; y++){
-                    System.out.print("*");
-                }
-            break; 
-            }
-            
-            // section 1
-            for(int j = n-i; j>0; j--){
-                System.out.print(" ");
-            }
+    void pattern15(int n) {
+    if (n <= 0) return;
 
+    // upper half (1..n)
+    for (int i = 1; i <= n; i++) {
+        for (int s = 0; s < n - i; s++) System.out.print(" ");
+
+        int inner = 2 * i - 3;
+        if (inner < 0) {
+            System.out.println("*");
+        } else {
             System.out.print("*");
-
-            //section3 spaces
-            while(i>1 || i<n){
-                for(int j = 2; j<=i ; j++){
-                System.out.print(" ");
-            }
-            System.out.print("*");
-            break; 
-            }
-
-            System.out.println("");
+            for (int k = 0; k < inner; k++) System.out.print(" ");
+            System.out.println("*");
         }
-        
     }
 
+    // lower half (r = 1..n-1) using the derived formula
+    for (int r = 1; r < n; r++) {
+        for (int s = 0; s < r; s++) System.out.print(" ");
+
+        int inner = 2 * (n - r) - 3;
+        if (inner < 0) {
+            System.out.println("*");
+        } else {
+            System.out.print("*");
+            for (int k = 0; k < inner; k++) System.out.print(" ");
+            System.out.println("*");
+        }
+    }
+}
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+    void pattern14(int n){
+     
+        for (int i=1; i<=n; i++){
+        
+        for(int j = 1; j<i; j++){ // leading spaces
+            System.out.print(" ");
+          } 
+        
+        if(i==1){
+        for(int j=1; j<=((2*n)-1); j++){
+            System.out.print("*");
+         }
+        }
+        else if(i==n){
+            System.out.print("*");
+        }else{
+        System.out.print("*");
+        for(int j = 0 ;j<((2*(n-i))-1) ; j++){
+        System.out.print(" ");
+        }
+        System.out.print("*");
+        }
+  
+        System.out.println("");
+        }
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    void pattern13(int n) {
+    for (int i = 1; i <= n; i++) {
+        // leading spaces
+        for (int j = 1; j <= n - i; j++) System.out.print(" ");
+
+        if (i == 1) {
+            System.out.print("*");
+        } else if (i == n) {
+            for (int j = 1; j <= ((2*n)-1); j++) System.out.print("*");
+        } else {
+            System.out.print("*");
+            for (int j = 1; j <= 2 * i - 3; j++) System.out.print(" ");
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
 
 
 
