@@ -8,9 +8,37 @@ public class Patterns {
         System.out.println("Enter the value n: ");
         int n = scan.nextInt();
         Patterns pattern = new Patterns();
-        pattern.pattern15(n);
+        pattern.pattern16(n);
     }
     
+   void pattern16(int n){
+    
+   for(int i = 1; i<=n; i++){
+   int k = (2*n + 3) - 2*i;
+       for(int j = 1; j<= k; j++){
+       System.out.print(" ");
+       }
+
+       for(int g = 1; g<=i; g++){
+        System.out.print(ncrpascal(i, g) + "   ");
+       }
+
+       System.out.println();
+   }
+ }
+
+    int ncrpascal(int a, int b){
+
+    int x = a-1;
+    int y = b-1;
+    int res = 1;
+    for(int i = 0; i<y; i++){
+        res = res * (x - i);
+        res = res / (i + 1);
+    }
+    return res;
+    }
+
     void pattern15(int n) {
     if (n <= 0) return;
 
